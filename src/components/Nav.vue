@@ -1,8 +1,81 @@
 <script setup>
 import Logo from "../assets/images/logo.png";
+import { ref } from "vue";
+const is_contact_us_open = ref(false);
 </script>
 
 <template>
+    <div
+        v-if="is_contact_us_open"
+        class="w-screen fixed h-screen flex justify-center items-center bg-base-content/50"
+    >
+        <form
+            v-on:submit.prevent="is_contact_us_open = !is_contact_us_open"
+            class="bg-base-100 flex flex-col p-4 rounded-box shadow-lg w-full max-w-lg h-96"
+            action=""
+            method="POST"
+        >
+            <div class="text-xl flex justify-between w-full">
+                <h3>Fill details to browse products</h3>
+                <svg
+                    @click="is_contact_us_open = !is_contact_us_open"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6 text-primary-content cursor-pointer"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M6 18L18 6M6 6l12 12"
+                    />
+                </svg>
+            </div>
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text text-primary-content">Name</span>
+                </label>
+
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Your Name"
+                    class="input input-primary"
+                />
+            </div>
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text text-primary-content">Email</span>
+                </label>
+
+                <input
+                    type="email"
+                    name="_replyto"
+                    placeholder="Your Email"
+                    class="input input-primary"
+                />
+            </div>
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text text-primary-content">Phone</span>
+                </label>
+
+                <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Your Phone"
+                    class="input input-primary"
+                />
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="btn btn-primary w-full mt-auto">
+                Submit
+            </button>
+        </form>
+    </div>
     <div class="navbar bg-base-100 lg:px-32">
         <div class="navbar-start">
             <div class="dropdown">
@@ -75,7 +148,12 @@ import Logo from "../assets/images/logo.png";
             </ul>
         </div>
         <div class="navbar-end">
-            <a class="btn btn-primary">Contact Us</a>
+            <button
+                @click="is_contact_us_open = !is_contact_us_open"
+                class="btn btn-primary"
+            >
+                Contact Us
+            </button>
         </div>
     </div>
 </template>

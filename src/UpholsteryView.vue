@@ -15,6 +15,7 @@ const grid_images = [i_6051, i_1080, U6020, U3090, U1280, U3075];
     <div class="flex gap-4 lg:px-32 flex-col-reverse lg:flex-row">
         <div class="basis-2/5 grid grid-cols-2 gap-2">
             <img
+                loading="lazy"
                 v-for="(image, index) in grid_images"
                 :key="index"
                 class="object-cover w-full h-full"
@@ -24,7 +25,12 @@ const grid_images = [i_6051, i_1080, U6020, U3090, U1280, U3075];
         </div>
         <div class="basis-3/5 flex lg:flex-col flex-col-reverse gap-8">
             <div>
-                <img class="object-cover w-full h-96" :src="U6080" alt="B518" />
+                <img
+                    loading="lazy"
+                    class="object-cover w-full h-96"
+                    :src="U6080"
+                    alt="B518"
+                />
             </div>
             <div class="px-4 lg:px-0 flex flex-col lg:flex-row gap-4">
                 <h2 class="text-2xl lg:text-3xl text-secondary font-extrabold">

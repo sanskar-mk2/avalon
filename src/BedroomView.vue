@@ -17,6 +17,7 @@ const is_reading_more = ref(false);
     <div class="flex gap-4 lg:px-32 flex-col-reverse lg:flex-row">
         <div class="basis-2/5 grid grid-cols-2 gap-2">
             <img
+                loading="lazy"
                 v-for="(image, index) in grid_images"
                 :key="index"
                 class="object-cover w-full h-full"
@@ -26,7 +27,12 @@ const is_reading_more = ref(false);
         </div>
         <div class="basis-3/5 flex lg:flex-col flex-col-reverse gap-8">
             <div>
-                <img class="object-cover w-full h-96" :src="B226" alt="B226" />
+                <img
+                    loading="lazy"
+                    class="object-cover w-full h-96"
+                    :src="B226"
+                    alt="B226"
+                />
             </div>
             <div class="px-4 lg:px-0 flex flex-col lg:flex-row gap-4">
                 <h2 class="text-2xl lg:text-3xl text-secondary font-extrabold">

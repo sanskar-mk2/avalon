@@ -27,6 +27,7 @@ onMounted(() => {
             <div class="basis-2/5 flex flex-col h-[576px] gap-4">
                 <div class="basis-1/2 h-[288px] overflow-hidden">
                     <img
+                        loading="lazy"
                         class="object-cover w-full h-full"
                         :src="B299"
                         alt="B299"
@@ -35,6 +36,7 @@ onMounted(() => {
                 <div class="flex h-36 lg:h-[288px] overflow-hidden gap-4">
                     <div class="basis-1/2">
                         <img
+                            loading="lazy"
                             class="object-cover w-full h-full"
                             :src="B775"
                             alt="B775"
@@ -42,6 +44,7 @@ onMounted(() => {
                     </div>
                     <div class="basis-1/2">
                         <img
+                            loading="lazy"
                             class="object-cover w-full h-full"
                             :src="B913"
                             alt="B913"
