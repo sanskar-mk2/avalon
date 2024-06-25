@@ -27,7 +27,7 @@ watch(
 <template>
     <div
         v-if="is_contact_us_open"
-        class="w-screen fixed h-screen flex justify-center items-center bg-base-content/50"
+        class="z-50 w-screen fixed h-screen flex justify-center items-center bg-base-content/50"
     >
         <form
             v-on:submit.prevent="submit_contact_us"
