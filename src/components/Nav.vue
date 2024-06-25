@@ -1,7 +1,27 @@
 <script setup>
+import { useRoute } from "vue-router";
 import Logo from "../assets/images/logo.png";
-import { ref } from "vue";
+import { onMounted, ref, watch } from "vue";
 const is_contact_us_open = ref(false);
+const submit_contact_us = () => {
+    localStorage.setItem("is_contact_us_submitted", true);
+    is_contact_us_open.value = false;
+};
+
+const route = useRoute();
+
+watch(
+    () => route.fullPath,
+    async () => {
+        if (["/bedroom", "/dining", "/upholstery"].includes(route.fullPath)) {
+            if (!localStorage.getItem("is_contact_us_submitted")) {
+                is_contact_us_open.value = true;
+            }
+        } else {
+            is_contact_us_open.value = false;
+        }
+    }
+);
 </script>
 
 <template>
@@ -10,14 +30,14 @@ const is_contact_us_open = ref(false);
         class="w-screen fixed h-screen flex justify-center items-center bg-base-content/50"
     >
         <form
-            v-on:submit.prevent="is_contact_us_open = !is_contact_us_open"
-            class="bg-base-100 flex flex-col p-4 rounded-box shadow-lg w-full max-w-lg h-96"
+            v-on:submit.prevent="submit_contact_us"
+            class="bg-base-100 flex flex-col p-4 gap-4 rounded-box shadow-lg w-full max-w-lg"
             action=""
             method="POST"
         >
             <div class="text-xl flex justify-between w-full">
                 <h3>Fill details to browse products</h3>
-                <svg
+                <!-- <svg
                     @click="is_contact_us_open = !is_contact_us_open"
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-6 w-6 text-primary-content cursor-pointer"
@@ -31,7 +51,7 @@ const is_contact_us_open = ref(false);
                         stroke-width="2"
                         d="M6 18L18 6M6 6l12 12"
                     />
-                </svg>
+                </svg> -->
             </div>
             <div class="form-control">
                 <label class="label">
@@ -68,6 +88,24 @@ const is_contact_us_open = ref(false);
                     placeholder="Your Phone"
                     class="input input-primary"
                 />
+            </div>
+
+            <!-- select interested product -->
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text text-primary-content"
+                        >Interested Product</span
+                    >
+                </label>
+                <select
+                    name="interested_product"
+                    class="select select-bordered select-primary"
+                >
+                    <option value="">Select</option>
+                    <option value="bedroom">Bedroom</option>
+                    <option value="dining">Dining</option>
+                    <option value="upholstery">Upholstery</option>
+                </select>
             </div>
 
             <!-- Submit -->
