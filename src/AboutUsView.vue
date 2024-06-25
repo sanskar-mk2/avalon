@@ -34,7 +34,7 @@ const is_reading_more = ref(false);
                     alt="B518"
                 />
             </div>
-            <div class="px-4 lg:px-0 flex flex-col lg:flex-row gap-4">
+            <div class="px-4 lg:px-0 flex flex-col gap-4">
                 <h2 class="text-2xl lg:text-3xl text-secondary font-extrabold">
                     About Us
                 </h2>
