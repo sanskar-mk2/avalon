@@ -34,7 +34,7 @@ const is_reading_more = ref(false);
                     alt="B226"
                 />
             </div>
-            <div class="px-4 lg:px-0 flex flex-col  gap-4">
+            <div class="px-4 lg:px-0 flex flex-col gap-4">
                 <h2 class="text-2xl lg:text-3xl text-secondary font-extrabold">
                     Bedroom
                 </h2>
@@ -72,15 +72,17 @@ const is_reading_more = ref(false);
                     </p>
                     <p :class="{ 'hidden lg:block': !is_reading_more }">
                         Our nightstands offer power charging for your devices
-                        atop your nightstand. Wireless rapid charging and two
-                        USB ports mounted on the back of each nightstand to
-                        charge additional devices. Some models have a low
-                        voltage, cool to the touch LED night light that
+                        atop your nightstand. Some nightstands offer wireless
+                        rapid charging with dual USB ports mounted on the back
+                        of each nightstand to charge additional devices as well
+                        as a low voltage, cool to the touch LED night light that
                         illuminates your late-night pathway to safely reach your
                         destination without stepping on pets or toys on your
-                        way. Coming soon is our new “Tech - stand” that features
-                        charging of your phone, air pods tm and watch
-                        simultaneously and safely.
+                        way. Others offer A and C dual port charging capability
+                        only and others have this plus an LED nightlight. Coming
+                        soon is our new “TECH - STAND”™️ that features charging
+                        of your phone, air pods and watch simultaneously and
+                        safely.
                     </p>
                 </div>
             </div>

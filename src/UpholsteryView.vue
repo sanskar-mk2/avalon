@@ -6,6 +6,8 @@ import U3090 from "./assets/images/U3090 Lucille Lt. Gray.jpg";
 import U1280 from "./assets/images/U1280 Bunny Ivory.jpg";
 import U3075 from "./assets/images/U3075 Lucille Beige.jpg";
 
+import U6051DC from "./assets/images/U6051DC.jpg";
+
 import U6080 from "./assets/images/U6080 in Puff Daddy Sioenna.jpg";
 
 const grid_images = [i_6051, i_1080, U6020, U3090, U1280, U3075];
@@ -28,8 +30,8 @@ const grid_images = [i_6051, i_1080, U6020, U3090, U1280, U3075];
                 <img
                     loading="lazy"
                     class="object-cover w-full h-96"
-                    :src="U6080"
-                    alt="B518"
+                    :src="U6051DC"
+                    alt="U6051DC"
                 />
             </div>
             <div class="px-4 lg:px-0 flex flex-col gap-4">
