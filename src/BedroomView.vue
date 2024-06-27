@@ -80,7 +80,7 @@ const is_reading_more = ref(false);
                         destination without stepping on pets or toys on your
                         way. Others offer A and C dual port charging capability
                         only and others have this plus an LED nightlight. Coming
-                        soon is our new “TECH - STAND”™️ that features charging
+                        soon is our new TECH-STAND™️ that features charging
                         of your phone, air pods and watch simultaneously and
                         safely.
                     </p>
