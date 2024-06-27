@@ -9,17 +9,23 @@ const submit_contact_us = () => {
 };
 
 const route = useRoute();
+const desktop_menu = ref(null);
+const mobile_menu = ref(null);
 
 watch(
     () => route.fullPath,
     async () => {
         if (["/bedroom", "/dining", "/upholstery"].includes(route.fullPath)) {
+            desktop_menu.value.click();
             if (!localStorage.getItem("is_contact_us_submitted")) {
                 is_contact_us_open.value = true;
             }
         } else {
             is_contact_us_open.value = false;
         }
+
+        // blur all links inside the mobile menu
+        mobile_menu.value.querySelectorAll("a").forEach((link) => link.blur());
     }
 );
 </script>
@@ -115,7 +121,7 @@ watch(
         </form>
     </div>
     <div class="navbar bg-base-100 lg:px-32">
-        <div class="navbar-start">
+        <div class="navbar-start" ref="mobile_menu">
             <div class="dropdown">
                 <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
                     <svg
@@ -140,7 +146,7 @@ watch(
                     <li><RouterLink to="/">Home</RouterLink></li>
                     <li><RouterLink to="about-us">About Us</RouterLink></li>
                     <li>
-                        <a>Our Products</a>
+                        <a ref="products">Our Products</a>
                         <ul class="p-2">
                             <li>
                                 <RouterLink to="/bedroom">Bedroom</RouterLink>
@@ -167,7 +173,7 @@ watch(
                 <li><RouterLink to="about-us">About Us</RouterLink></li>
                 <li>
                     <details>
-                        <summary>Our Products</summary>
+                        <summary ref="desktop_menu">Our Products</summary>
                         <ul class="p-2">
                             <li>
                                 <RouterLink to="/bedroom">Bedroom</RouterLink>
