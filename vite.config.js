@@ -6,8 +6,8 @@ import vue from "@vitejs/plugin-vue";
 export default defineConfig({
     plugins: [
         vue(),
-        ViteImageOptimizer({
-            // jpg: { quality: 75 },
-        }),
+        // ViteImageOptimizer({
+        //     // jpg: { quality: 75 },
+        // }),
     ],
 });
