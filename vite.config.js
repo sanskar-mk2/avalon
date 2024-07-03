@@ -7,7 +7,7 @@ export default defineConfig({
     plugins: [
         vue(),
         ViteImageOptimizer({
-            jpg: { quality: 50 },
+            // jpg: { quality: 50 },
         }),
     ],
 });
