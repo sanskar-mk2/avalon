@@ -5,6 +5,8 @@ import { Link, usePage } from "@inertiajs/vue3";
 import ContactForm from "@/Components/ContactForm.vue";
 import AlertSuccess from "@/Components/AlertSuccess.vue";
 import AlertError from "@/Components/AlertError.vue";
+import AlertWarning from "@/Components/AlertWarning.vue";
+import AlertInfo from "@/Components/AlertInfo.vue";
 const is_contact_us_open = ref(false);
 
 const page = usePage();
@@ -29,7 +31,7 @@ const start_alert_timer = () => {
 watch(
     () => page.props.flash,
     (new_flash) => {
-        if (new_flash.success || new_flash.error) {
+        if (new_flash.success || new_flash.error || new_flash.warning || new_flash.info) {
             start_alert_timer();
         }
     }
@@ -42,7 +44,7 @@ onMounted(() => {
         }
     }
 
-    if (page.props.flash.success || page.props.flash.error) {
+    if (page.props.flash.success || page.props.flash.error || page.props.flash.warning || page.props.flash.info) {
         start_alert_timer();
     }
 });
@@ -83,6 +85,12 @@ onMounted(() => {
         <AlertError v-if="$page.props.flash.error">
             {{ $page.props.flash.error }}
         </AlertError>
+        <AlertWarning v-if="$page.props.flash.warning">
+            {{ $page.props.flash.warning }}
+        </AlertWarning>
+        <AlertInfo v-if="$page.props.flash.info">
+            {{ $page.props.flash.info }}
+        </AlertInfo>
     </div>
     <div class="navbar bg-base-100 lg:px-32">
         <div class="navbar-start" ref="mobile_menu">

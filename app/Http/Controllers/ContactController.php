@@ -32,7 +32,7 @@ class ContactController extends Controller
     {
         Contact::create($request->validated());
 
-        $request->session()->flash('success', 'Form submitted successfully!');
+        $request->session()->flash('success', 'Thank you for your interest in Avalon furniture.');
         return redirect()->back();
     }
 

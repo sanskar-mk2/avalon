@@ -20,7 +20,7 @@ use Inertia\Inertia;
 
 Route::get('/', function (Request $request) {
     if ($request->query('from-products')) {
-        $request->session()->now('error', 'You have to submit the form to access the products.');
+        $request->session()->now('info', 'We can assist you better with our product line if you share the contact details.');
     }
     return Inertia::render('Home');
 })->name('home');
