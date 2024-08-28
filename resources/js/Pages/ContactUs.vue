@@ -23,7 +23,7 @@ const props = defineProps({
                     Contact Us
                 </h2>
 
-                <ContactForm />
+                <ContactForm show_message_textbox="true" />
             </div>
 
             <div class="flex flex-col lg:basis-1/2 gap-8">

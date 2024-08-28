@@ -5,6 +5,14 @@ const form = useForm({
     email: "",
     phone: "",
     interest: "",
+    message: "",
+});
+const props = defineProps({
+    show_message_textbox: {
+        type: Boolean,
+        required: false,
+        default: false,
+    },
 });
 const emit = defineEmits(["submitted"]);
 const submit_form = () => {
@@ -94,6 +102,23 @@ const submit_form = () => {
                 <span
                     v-if="form.errors.interest"
                     v-text="form.errors.interest"
+                ></span>
+            </div>
+        </div>
+        <div v-if="props.show_message_textbox" class="form-control">
+            <label class="label">
+                <span class="label-text text-primary-content">Question/Comment</span>
+            </label>
+            <textarea
+                name="message"
+                v-model="form.message"
+                placeholder="Your Message"
+                class="textarea textarea-bordered textarea-primary"
+            ></textarea>
+            <div class="text-error text-sm">
+                <span
+                    v-if="form.errors.message"
+                    v-text="form.errors.message"
                 ></span>
             </div>
         </div>

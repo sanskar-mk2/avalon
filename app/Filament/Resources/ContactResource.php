@@ -18,6 +18,8 @@ class ContactResource extends Resource
 {
     protected static ?string $model = Contact::class;
 
+    protected static ?string $modelLabel = 'Form Submissions';
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
@@ -28,7 +30,7 @@ class ContactResource extends Resource
 
     public static function canCreate(): bool
     {
-       return false;
+        return false;
     }
 
     public static function table(Table $table): Table
@@ -47,7 +49,11 @@ class ContactResource extends Resource
                 TextColumn::make('interest')
                     ->searchable()
                     ->sortable(),
+                TextColumn::make('message'),
+                TextColumn::make('created_at')
+                    ->sortable(),
             ])
+            ->defaultSort('created_at', 'desc')
             ->filters([
                 //
             ])

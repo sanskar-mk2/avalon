@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+    'mail_to' => env('MAIL_TO', ''),
     /*
     |--------------------------------------------------------------------------
     | Default Mailer
@@ -12,7 +12,6 @@ return [
     | and used as needed; however, this mailer will be used by default.
     |
     */
-
     'default' => env('MAIL_MAILER', 'smtp'),
 
     /*

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreContactRequest;
+use App\Mail\NewContactSubmission;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Inertia\Inertia;
 
 class ContactController extends Controller
@@ -30,7 +32,9 @@ class ContactController extends Controller
      */
     public function store(StoreContactRequest $request)
     {
-        Contact::create($request->validated());
+        $contact = Contact::create($request->validated());
+
+        Mail::to(config('mail.mail_to'))->send(new NewContactSubmission($contact));
 
         $request->session()->flash('success', 'Thank you for your interest in Avalon furniture.');
         return redirect()->back();
