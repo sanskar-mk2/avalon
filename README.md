@@ -1,23 +1,22 @@
-# Avalon Website
+# Avalon Furniture Website
 
-## Inertia SSR Systemd Service
-```shell
-sanskar@Dickson-new-server:~$ cat /etc/systemd/system/avalon-ssr.service
-[Unit]
-Description=Inertia SSR for Avalon
-After=network.target
+A modern informational website for Avalon Furniture showcasing their premium furniture collections. Built with Laravel, Vue.js, Inertia.js, and Tailwind CSS, featuring server-side rendering (SSR) for optimal performance.
 
-[Service]
-User=www-data
-ExecStart=/usr/bin/php /home/sanskar/avalon/artisan inertia:start-ssr
-Environment=PATH=/home/sanskar/.nvm/versions/node/v20.15.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-Environment=NODE_VERSION=20.15.1
-WorkingDirectory=/home/sanskar/avalon
+## Tech Stack
 
-RestartSec=3
-Restart=on-failure
-Type=simple
+- **Backend:** Laravel
+- **Frontend:** Vue.js 3 
+- **SSR Solution:** Inertia.js
+- **CSS Framework:** Tailwind CSS
+- **Build Tool:** Vite
 
-[Install]
-WantedBy=multi-user.target
-```
+## Features
+
+- Responsive furniture catalog showcase
+- Product category displays
+- Dynamic image loading and optimization
+- SEO-friendly architecture with SSR
+- Modern, sophisticated UI/UX design
+- Contact form with email integration
+- Company information and about pages
+- Clean, minimalist design focused on furniture presentation
